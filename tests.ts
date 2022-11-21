@@ -1,7 +1,7 @@
 import { getPasswordStrength, getUsersWithStrongPassword } from "./index";
 
 
-describe("Teste unitário de getPasswordStrength," () => {
+describe("Teste unitário de getPasswordStrength", () => {
     test("Deve retornar 0 quando senha for null", () => {
         const testPass = null
         const result = getPasswordStrength(testPass)
@@ -31,31 +31,35 @@ describe("Teste unitário de getPasswordStrength," () => {
     })
 })
 
-describe("Teste para testar se a função chama outra função", () => {
+describe("Teste unitário para getUsersWithStrongPassword", () => {
     test("Deve retornar os 3 usuários")
-        const testUsersPass = [
-            {
-                id: 1,
-                name: 'Flávio',
-                email: '',
-                nickname: 'flavio',
-                password: 'senha@#SuperForte123'
-            },
-            {
-                id: 2,
-                name: 'Jamil',
-                email: '',
-                nickname: 'jamil',
-                password: 'senha@#SuperForte123'
-            },
-            {
-                id: 3,
-                name: 'Fábio',
-                email: '',
-                nickname: 'fabio',
-                password: 'senha@#SuperForte123'
-            }
-        ]
-        const result = getUsersWithStrongPassword(testUsersPass)
+        const userMock = jest.fn(() => {
+            return [
+                {
+                    id: 1,
+                    name: 'Flávio',
+                    email: '',
+                    nickname: 'flavio',
+                    password: 'senha@#SuperForte123'
+                },
+                {
+                    id: 2,
+                    name: 'Jamil',
+                    email: '',
+                    nickname: 'jamil',
+                    password: 'senha@#SuperForte123'
+                },
+                {
+                    id: 3,
+                    name: 'Fábio',
+                    email: '',
+                    nickname: 'fabio',
+                    password: 'senha@#SuperForte123'
+                }
+            ]
+        })
+        
+        test("Retornar")
+        const result = getUsersWithStrongPassword(userMock)
         expect(result.size).toBe(3)
 })

@@ -43,8 +43,8 @@ export const getPasswordStrength = (password: string): number => {
 };
 
 // Password strength test should be more than 3
-const getUsersWithStrongPassword = (): User[] => {
-    const usersWithStrongPassword = users.filter((user) => {
+const getUsersWithStrongPassword = (usersList: any): User[] => {
+    const usersWithStrongPassword = usersList.filter((user) => {
         return getPasswordStrength(user.password) > 3
     });
     return usersWithStrongPassword;
